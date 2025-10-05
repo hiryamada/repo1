@@ -14,7 +14,7 @@ def check_user_exists(username, password):
         conn = psycopg2.connect(
             dbname="your_db_name",
             user="your_db_user",
-            password="your_db_password",
+            password="p@ssw0rd",
             host="localhost",
             port="5432"
         )

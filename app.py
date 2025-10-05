@@ -20,7 +20,7 @@ def check_user_exists(username, password):
         )
         cur = conn.cursor()
         # SQLインジェクション脆弱性を含むサンプル（教材用）
-        query = f"SELECT 1 FROM users WHERE username = '{username}' AND password = '{password}' LIMIT 1;"
+        query = "SELECT 1 FROM users WHERE username = '" + username + "' AND password = '" + password + "' LIMIT 1;"
         cur.execute(query)
         result = cur.fetchone()
         cur.close()

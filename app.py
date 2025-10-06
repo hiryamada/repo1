@@ -1,13 +1,16 @@
+import os
+import psycopg2
+
 def check_user_exists(username, password):
     conn = None
     try:
-        # DB接続情報（適宜書き換えてください）
+        # DB接続情報（環境変数から取得）
         conn = psycopg2.connect(
-            dbname="your_db_name",
-            user="your_db_user",
-            password="p@ssw0rd",
-            host="localhost",
-            port="5432"
+            dbname=os.getenv("DB_NAME", "your_db_name"),
+            user=os.getenv("DB_USER", "your_db_user"),
+            password=os.getenv("DB_PASSWORD", "p@ssw0rd"),
+            host=os.getenv("DB_HOST", "localhost"),
+            port=os.getenv("DB_PORT", "5432")
         )
         cur = conn.cursor()
         # SQLインジェクション脆弱性を含むサンプル（教材用）

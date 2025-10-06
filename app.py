@@ -1,12 +1,3 @@
-import psycopg2
-
-# 生年月日から現在の年齢を計算する関数
-from datetime import datetime
-def calculate_age(birthdate):
-    today = datetime.today()
-    age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
-    return age
-# PostgreSQL: ユーザー名とパスワードを受け取り、該当ユーザーが存在するかどうかを確認する関数
 def check_user_exists(username, password):
     conn = None
     try:
